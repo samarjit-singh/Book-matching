@@ -25,7 +25,7 @@ const Results = ({ recommendedBooks, criteria1, criteria2, criteria3 }) => {
       {
         label: "Personal Choice",
 
-        data: [personalChoiceValue,personalChoiceValue,personalChoiceValue,personalChoiceValue,personalChoiceValue],
+        data: [personalChoiceValue],
       },
     ],
   });
