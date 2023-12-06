@@ -30,23 +30,25 @@ const Results = ({ recommendedBooks, criteria1, criteria2, criteria3 }) => {
     ],
   });
 
-  useEffect(() => {
-    console.log("recommended Books", recommendedBooks);
-  }, []);
-
   return (
-    <div className="flex gap-x-4">
-      <div style={{ width: 700 }} className="mt-12 mb-10">
+    <div className="lg:flex mt-12 gap-x-[4rem] h-[110vw] sm:h-[25vw]">
+      <div className="mt-12 mb-10 h-[45vw] sm:w-[700px]">
         <Line data={userData} />
       </div>
-      <div className="border rounded-lg mt-12 w-[15rem] h-[22rem] flex flex-col">
+      <div className="border rounded-lg mt-12 sm:w-[15vw] sm:h-[22rem] flex flex-col">
         <p className="font-medium bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent mt-4 flex items-center justify-center">
           Recommended Book For You
         </p>
-        <div className="flex flex-col items-start justify-start p-8">
-          <p>📖 {recommendedBooks.matchingBooks[0].title}</p>
-          <p>🧔{recommendedBooks.matchingBooks[0].author}</p>
-          <p>📔 {recommendedBooks.matchingBooks[0].genre}</p>
+        <div className="flex flex-col items-start justify-start ml-8 sm:ml-0 p-8">
+          <p className="text-gray-500 font-medium">
+            📖 {recommendedBooks.matchingBooks[0].title}
+          </p>
+          <p className="text-gray-500 font-medium">
+            🧔{recommendedBooks.matchingBooks[0].author}
+          </p>
+          <p className="text-gray-500 font-medium">
+            📔 {recommendedBooks.matchingBooks[0].genre}
+          </p>
         </div>
       </div>
     </div>

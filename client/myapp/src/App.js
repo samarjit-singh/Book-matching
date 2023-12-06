@@ -5,9 +5,9 @@ import Questions from "./components/Questions";
 
 const App = () => {
   return (
-    <div className="relative">
+    <div className="relative overflow-x-hidden sm:overflow-x-visible">
       <Nav />
-      <div className="mt-16 h-screen">
+      <div className="mt-16 w-full">
         <div className="gradient" />
         <div className="flex flex-col items-center justify-center p-20">
           <Heading />
