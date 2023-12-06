@@ -32,26 +32,20 @@ module.exports.findMatchingBooks = async (req, res, next) => {
       .map((book) => {
         const bookVector = [book.criteria1, book.criteria2, book.criteria3];
 
-        // console.log("User Vector:", userVector);
-        // console.log("Book Vector:", bookVector);
-
         const differenceVector = userVector.map(
           (userVal, index) => userVal - bookVector[index]
         );
 
-        // console.log("Difference Vector:", differenceVector);
-
         const differenceMagnitude = Math.sqrt(
           differenceVector.reduce((sum, val) => sum + val ** 2, 0)
         );
-
-        // console.log("Difference Magnitude:", differenceMagnitude);
 
         return {
           title: book.title,
           author: book.author,
           genre: book.genre,
           differenceMagnitude,
+          userVector,
         };
       })
       .sort((a, b) => a.differenceMagnitude - b.differenceMagnitude);
