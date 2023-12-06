@@ -44,3 +44,7 @@ $ npm start
 - Node.js
 
 The chosen tech stack enables a seamless integration of front-end and back-end components, ensuring a visually appealing and efficient web application that effectively matches users with literature based on their personalities.
+
+
+- Samarjit Singh Khanuja
+- “Reach Best Full Stack Engineer Application 2023”
