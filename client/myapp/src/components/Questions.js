@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import LineChart from "./LineChart";
+import Results from "./Results";
 
 const Questions = () => {
   const [criteria1, setCriteria1] = useState(1);
@@ -24,10 +24,6 @@ const Questions = () => {
       console.error("Error making API call:", error);
     }
   };
-
-  useEffect(() => {
-    console.log("recommended Books", recommendedBooks);
-  }, []);
 
   return (
     <div className="w-[60rem] h-[22rem] flex flex-col gap-y-4 rounded-xl border mt-10 bg-pink-50">
@@ -87,15 +83,28 @@ const Questions = () => {
           </select>
         </span>
       </div>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center gap-x-4">
         <button
           onClick={handleSubmit}
           className="h-10 w-24 bg-black rounded-full text-white hover:bg-white hover:text-black hover:border-2 hover:border-black font-semibold"
         >
           Submit
         </button>
+        <button
+          onClick={() => window.location.reload()}
+          className="h-10 w-24 bg-black rounded-full text-white hover:bg-white hover:text-black hover:border-2 hover:border-black font-semibold"
+        >
+          Try Again
+        </button>
       </div>
-      <LineChart recommendedBooks={recommendedBooks} />
+      {Object.keys(recommendedBooks).length > 0 && (
+        <Results
+          recommendedBooks={recommendedBooks}
+          criteria1={criteria1}
+          criteria2={criteria2}
+          criteria3={criteria3}
+        />
+      )}
     </div>
   );
 };
